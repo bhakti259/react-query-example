@@ -1,0 +1,83 @@
+{
+  "version": "1.6.1",
+  "license": "MIT",
+  "homepage": "https://github.com/kgnugur/formik-chakra-ui",
+  "repository": "git@github.com:kgnugur/formik-chakra-ui",
+  "keywords": [
+    "react",
+    "formik",
+    "chakra-ui"
+  ],
+  "maintainers": [
+    "Kağan Uğur"
+  ],
+  "description": "Bindings for using Formik with Chakra UI.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "test:watch": "tsdx test --watch --passWithNoTests",
+    "test:u": "tsdx test --passWithNoTests -u",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "docs": "typedoc",
+    "release": "release-it"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "formik-chakra-ui",
+  "author": "Kagan Ugur",
+  "module": "dist/formik-chakra-ui.esm.js",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@chakra-ui/react": "^1.6.1",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@testing-library/react": "^11.2.6",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.3",
+    "@types/yup": "^0.29.11",
+    "babel-loader": "^8.2.2",
+    "formik": "^2.2.6",
+    "framer-motion": "4.1.13",
+    "husky": "^6.0.0",
+    "np": "^7.5.0",
+    "react": "^17.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "release-it": "^15.5.0",
+    "ts-loader": "^9.1.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4",
+    "yup": "^0.32.9"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
+  }
+}
