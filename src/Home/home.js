@@ -5,19 +5,10 @@ import { Container, Heading, Stack, Flex, Text, Spinner, Grid, Button } from '@c
 import { useParams, Link   } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import AddNewPost from './components/addNewPost';
+import { fetchPosts } from '../api';
 
+//https://gorest.co.in/public/v2/users/5124733/posts
 const Home = () => {
-    const fetchPosts = async (id) => {
-        try {
-           // const { data } = await axios.get(`https://gorest.co.in/public/v2/users/5124733/posts?page=${id}`);
-            const { data } = await axios.get(`https://gorest.co.in/public/v2/posts?page=${id}`);     
-            console.log('data being fetched after fetchPosts ', data)
-            return data;
-        } catch (error) {
-            throw Error('Could not fetch posts');
-        }
-    }
-
     const { id } = useParams(); 
     console.log('id passed via useParams hook ', id);
     const parsedId = parseInt(id);

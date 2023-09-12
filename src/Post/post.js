@@ -3,20 +3,12 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Container, Heading, Stack, Flex, Text, Spinner, Grid } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
+import { fetchPost } from '../api';
+import AddNewPost from '../Home/components/addNewPost';
 
 const Post = () => {
-    const fetchPost = async (id) => {
-        try {
-            const { data } = await axios.get(`https://gorest.co.in/public/v1/posts/${id}`);
-            return data;
-        } catch (error) {
-            throw Error('Could not fetch posts');
-        }
-    }
-
     const { id } = useParams(); 
-
-    const { data, isLoading, error } = useQuery(['post', id], () => fetchPost(id));
+    const { data, isLoading, error } = useQuery(['post', parseInt(id)], () => fetchPost(id));
 
     if (isLoading) {
         // Handle loading state
@@ -45,6 +37,7 @@ const Post = () => {
 
     return (
         <Container maxW="1300px" mt="4">
+            <AddNewPost isUpdate={true} id={data.data.id}/>
             <Flex justify="space-between" mb="4">
                 <Text>Current Post id: {id}</Text>
             </Flex>
