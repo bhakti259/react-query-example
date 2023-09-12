@@ -26,6 +26,12 @@ export const addNewPost = async ({ title, body }) => {
             {
                 title,
                 body,
+            },
+            {
+            headers: {
+                'Content-Type': 'application/json', // Set default content type
+                'Authorization': 'Bearer d0a0197b6636ef3575fd06646381983572597c7ca2f7b30dccff6f59078b96a6', // Set default authorization token if needed
+              },
             }
         );
         console.log('data returned after post ', data);
@@ -42,6 +48,11 @@ export const updatePost = async ({ title, body, id }) => {
             {
                 title,
                 body,
+            },
+            { headers: {
+                'Content-Type': 'application/json', // Set default content type
+                'Authorization': 'Bearer d0a0197b6636ef3575fd06646381983572597c7ca2f7b30dccff6f59078b96a6', // Set default authorization token if needed
+                },
             }
         );
         console.log('data returned after update post ', data);
@@ -62,6 +73,23 @@ export const fetchPosts = async (id) => {
         throw Error('Could not fetch posts');
     }
 }
+
+export const deletePost = async ({ id }) => {
+    try {
+      const { data } = await customAxios.delete(
+        `posts/${id}`,
+  
+        { headers: {
+            'Content-Type': 'application/json', // Set default content type
+            'Authorization': 'Bearer d0a0197b6636ef3575fd06646381983572597c7ca2f7b30dccff6f59078b96a6', // Set default authorization token if needed
+            },
+        }
+      );
+      return data;
+    } catch (error) {
+      throw Error(error.response.statusText);
+    }
+  };
 
 export const fetchPost = async (id) => {
     //https://gorest.co.in/public/v1/posts/67955
